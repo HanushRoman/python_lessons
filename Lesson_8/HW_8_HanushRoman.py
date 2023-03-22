@@ -20,6 +20,21 @@
 #     file.seek(0, 0)
 #     file.write(f'\n{string3}')
 #     file.write(f'\n{string4}')
+#Task 3
+import json
+import csv
+
+
+my_dict = {
+    12345678: ('Sam', 38),
+    72345628: ('Roma', 18),
+    12395678: ('Dima', 48),
+    32345678: ('Din', 33),
+
+}
+
+with open('hw8.json', 'w') as file:
+    json.dump(my_dict, file)
 
 
 #Task_4
@@ -29,13 +44,13 @@ import random
 
 
 with open('hw8.json', 'r') as json_file:
-    data = json.load(json_file) # загрузил данные из json файла
-print(data)
+    data = json.load(json_file)
 
-with open('data.csv', 'w', newline='') as csv_file:
-    writter = csv.writer(csv_file)
-    writter.writerow(['id', 'name', 'age', 'phone'])
+with open('data.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['id', 'name', 'age', 'phone'])
 for item in data:
-            writter.writerow([item, data[item][0], data[item][1], random.randint(1,10)])
+    writer.writerow([item, data[item][0], data[item][1], random.randint(1, 10)])
 
 # Решит проблемму со словарем, код не работает
+#
